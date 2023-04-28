@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/custom_edittext"
+            android:background="@drawable/shape_login_signup"
             android:orientation="vertical"
             android:padding="24dp">
 
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/shape_login_signup"
                 android:drawableLeft="@drawable/email"
                 android:drawablePadding="8dp"
                 android:hint="Email"
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/shape_login_signup"
                 android:drawableLeft="@drawable/password"
                 android:drawablePadding="8dp"
                 android:hint="Password"

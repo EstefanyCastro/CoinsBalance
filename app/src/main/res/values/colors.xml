@@ -9,5 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="morado">#A569BD</color>
     <color name="azul">#1E6BF1</color>
+    <color name="gris">#4E5460</color>
+    <color name="rojo">#F44336</color>
+    <color name="amarillo">#FFEB3B</color>
 
 </resources>
