@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
     android:orientation="vertical"
-    tools:context=".CuentasActivity">
+    tools:context=".ActividadCuentas">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,13 +20,13 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addBoton"
+        android:id="@+id/añadirCuentaBoton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="15dp"
-        android:src="@drawable/add"
+        android:src="@drawable/logo_anadir"
         app:backgroundTint="@color/white"
         app:tint="@color/black" />
 

@@ -10,11 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 
-class SignUpActivity : AppCompatActivity() {
+class ActividadIniciarSesion : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup)
+        setContentView(R.layout.actividad_iniciar_sesion)
 
         // Firebase
         val analytics = FirebaseAnalytics.getInstance(this)
@@ -22,39 +22,42 @@ class SignUpActivity : AppCompatActivity() {
         bundle.putString("message", "Integracion de firebase completa ")
         analytics.logEvent("InitScreen", bundle)
 
-        // Configuracion ir al view login
-        val irRegistro = findViewById<TextView>(R.id.LoginRedirigir)
+        // Configuracion ir al view registro
+        val irRegistro = findViewById<TextView>(R.id.redirigirARegistrar)
         irRegistro.setOnClickListener {
             irAlRegistro()
         }
         setup()
     }
 
-    // Configuracion registar cuenta
+    // Verificar logueo
     private fun setup() {
-        val blogout = findViewById<Button>(R.id.SignUpButton)
-        val blogin = findViewById<EditText>(R.id.SignUpEmail)
-        val blogpas = findViewById<EditText>(R.id.SignUpPassword)
+        val blogout = findViewById<Button>(R.id.iniciarSesionBoton)
+        val blogin = findViewById<EditText>(R.id.correoIniciarSesion)
+        val blogpas = findViewById<EditText>(R.id.contraseñaIniciarSesion)
         title = "logueo"
 
         blogout.setOnClickListener {
-            if (blogin.text.isNotEmpty()
+            if (blogin.text.isEmpty() || blogpas.text.isEmpty()) {
+                errorCampoVacio()
+            } else if (blogin.text.isNotEmpty()
                 && blogpas.text.isNotEmpty()
             ) {
                 FirebaseAuth.getInstance()
-                    .createUserWithEmailAndPassword(blogin.text.toString(), blogpas.text.toString())
+                    .signInWithEmailAndPassword(blogin.text.toString(), blogpas.text.toString())
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             irACuentas()
                         } else {
                             error()
+                            findViewById<EditText>(R.id.contraseñaIniciarSesion).setText("");
                         }
                     }
             }
         }
     }
 
-    // Pantalla error registrar
+    // Pantalla error logueo
     private fun error() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
@@ -64,13 +67,22 @@ class SignUpActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    private fun errorCampoVacio() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("No pueden haber campos vacios")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
     private fun irAlRegistro() {
-        val i = Intent(this, LogInActivity::class.java)
+        val i = Intent(this, ActividadRegistrarse::class.java)
         startActivity(i)
     }
 
     private fun irACuentas() {
-        val i = Intent(this, CuentasActivity::class.java)
+        val i = Intent(this, ActividadCuentas::class.java)
         startActivity(i)
     }
 }

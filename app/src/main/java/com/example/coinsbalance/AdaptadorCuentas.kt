@@ -8,44 +8,50 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 
-class AdaptadorCuenta(val c: Context, val userList: ArrayList<UserData>) :
-    RecyclerView.Adapter<AdaptadorCuenta.UserViewHolder>() {
+class AdaptadorCuenta(val context: Context, val listaCuentas: ArrayList<UserData>) :
+    RecyclerView.Adapter<AdaptadorCuenta.vistaCuentas>() {
 
-    inner class UserViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
-        var name: TextView
-        var mbNum: TextView
-        var mMenus: ImageView
+    inner class vistaCuentas(view: View) : RecyclerView.ViewHolder(view) {
+        var nombreCuenta: TextView
+        var saldoCuenta: TextView
+        var menuMas: ImageView
 
         init {
-            name = v.findViewById<TextView>(R.id.tituloCuenta)
-            mbNum = v.findViewById<TextView>(R.id.saldoDeCuenta)
-            mMenus = v.findViewById(R.id.menuMas)
-            mMenus.setOnClickListener { popupMenus(it) }
+            nombreCuenta = view.findViewById(R.id.nombreCuentaLista)
+            saldoCuenta = view.findViewById(R.id.saldoCuentaLista)
+            menuMas = view.findViewById(R.id.menuMasLista)
+            menuMas.setOnClickListener { popupMenus(it) }
         }
 
-        private fun popupMenus(v: View) {
-            val position = userList[adapterPosition]
-            val popupMenus = PopupMenu(c, v)
+        private fun popupMenus(view: View) {
+            val position = listaCuentas[adapterPosition]
+            val popupMenus = PopupMenu(context, view)
             popupMenus.inflate(R.menu.menu_cuentas)
             popupMenus.setOnMenuItemClickListener {
 
+                // Editar cuenta
                 when (it.itemId) {
                     R.id.editText -> {
-                        val v = LayoutInflater.from(c).inflate(R.layout.editar_cuenta, null)
-                        val name = v.findViewById<EditText>(R.id.nombreNuevaCuenta)
-                        val number = v.findViewById<EditText>(R.id.saldoNuevaCuenta)
-                        AlertDialog.Builder(c)
-                            .setView(v)
+                        val view =
+                            LayoutInflater.from(context).inflate(R.layout.editar_cuenta, null)
+                        val cuenta = view.findViewById<EditText>(R.id.nombreNuevaCuenta)
+                        val saldo = view.findViewById<EditText>(R.id.saldoNuevaCuenta)
+                        AlertDialog.Builder(context)
+                            .setView(view)
                             .setPositiveButton("Ok") { dialog, _ ->
-                                position.cuenta = "Nombre: " + name.text.toString()
-                                position.saldo = "Saldo: " + number.text.toString()
+                                position.cuenta = "Nombre: " + cuenta.text.toString()
+                                position.saldo = "Saldo: " + saldo.text.toString()
                                 notifyDataSetChanged()
-                                Toast.makeText(c, "User Information is Edited", Toast.LENGTH_SHORT)
+                                Toast.makeText(
+                                    context,
+                                    "La información de la cuenta a cambiado",
+                                    Toast.LENGTH_SHORT
+                                )
                                     .show()
                                 dialog.dismiss()
                             }
 
-                            .setNegativeButton("Cancel") { dialog, _ ->
+                            .setNegativeButton("Cancelar") { dialog, _ ->
                                 dialog.dismiss()
                             }
 
@@ -55,15 +61,16 @@ class AdaptadorCuenta(val c: Context, val userList: ArrayList<UserData>) :
                         true
                     }
 
+                    // Eliminar cuenta
                     R.id.delete -> {
-                        AlertDialog.Builder(c)
-                            .setTitle("Delete")
-                            .setIcon(R.drawable.warning)
-                            .setMessage("Are you sure delete this Information")
-                            .setPositiveButton("Yes") { dialog, _ ->
-                                userList.removeAt(adapterPosition)
+                        AlertDialog.Builder(context)
+                            .setTitle("Eliminar")
+                            .setIcon(R.drawable.logo_advertencia)
+                            .setMessage("¿Estas seguro que quieres eliminar la cuenta?")
+                            .setPositiveButton("Si") { dialog, _ ->
+                                listaCuentas.removeAt(adapterPosition)
                                 notifyDataSetChanged()
-                                Toast.makeText(c, "Deleted this Information", Toast.LENGTH_SHORT)
+                                Toast.makeText(context, "Información eliminada", Toast.LENGTH_SHORT)
                                     .show()
                                 dialog.dismiss()
                             }
@@ -81,6 +88,7 @@ class AdaptadorCuenta(val c: Context, val userList: ArrayList<UserData>) :
                 }
             }
 
+            // Mostrar menu
             popupMenus.show()
             val popup = PopupMenu::class.java.getDeclaredField("mPopup")
             popup.isAccessible = true
@@ -90,19 +98,19 @@ class AdaptadorCuenta(val c: Context, val userList: ArrayList<UserData>) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): vistaCuentas {
         val inflater = LayoutInflater.from(parent.context)
-        val v = inflater.inflate(R.layout.lista_cuentas, parent, false)
-        return UserViewHolder(v)
+        val v = inflater.inflate(R.layout.listar_cuentas, parent, false)
+        return vistaCuentas(v)
     }
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val newList = userList[position]
-        holder.name.text = newList.cuenta
-        holder.mbNum.text = newList.saldo
+    override fun onBindViewHolder(holder: vistaCuentas, position: Int) {
+        val newList = listaCuentas[position]
+        holder.nombreCuenta.text = newList.cuenta
+        holder.saldoCuenta.text = newList.saldo
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return listaCuentas.size
     }
 }

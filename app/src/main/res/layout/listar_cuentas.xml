@@ -22,7 +22,7 @@
             android:padding="4dp">
 
             <TextView
-                android:id="@+id/tituloCuenta"
+                android:id="@+id/nombreCuentaLista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
@@ -31,7 +31,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/saldoDeCuenta"
+                android:id="@+id/saldoCuentaLista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
@@ -42,12 +42,12 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/menuMas"
+            android:id="@+id/menuMasLista"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:src="@drawable/more" />
+            android:src="@drawable/logo_mas" />
 
     </LinearLayout>
 

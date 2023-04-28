@@ -12,7 +12,7 @@
         android:theme="@style/Theme.CoinsBalance"
         tools:targetApi="31">
         <activity
-            android:name=".LogInActivity"
+            android:name=".ActividadIniciarSesion"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".CuentasActivity" />
+        <activity android:name=".ActividadRegistrarse" />
+        <activity android:name=".ActividadCuentas" />
     </application>
 
 </manifest>

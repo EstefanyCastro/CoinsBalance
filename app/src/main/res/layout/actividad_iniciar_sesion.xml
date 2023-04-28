@@ -7,7 +7,7 @@
     android:background="@drawable/fondo"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LogInActivity">
+    tools:context=".ActividadIniciarSesion">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -20,63 +20,63 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/shape_login_signup"
+            android:background="@drawable/cuerpo_inicio_registrar"
             android:orientation="vertical"
             android:padding="24dp">
 
             <TextView
-                android:id="@+id/loginText"
+                android:id="@+id/iniciarSesionTexto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="Iniciar Sesión"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="36dp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/LogInEmail"
+                android:id="@+id/correoIniciarSesion"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/shape_login_signup"
-                android:drawableLeft="@drawable/email"
+                android:background="@drawable/cuerpo_inicio_registrar"
+                android:drawableLeft="@drawable/logo_correo"
                 android:drawablePadding="8dp"
-                android:hint="Email"
+                android:hint="Correo electrónico"
                 android:padding="8dp"
                 android:textColor="@color/black" />
 
             <EditText
-                android:id="@+id/LogInPassword"
+                android:id="@+id/contraseñaIniciarSesion"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/shape_login_signup"
-                android:drawableLeft="@drawable/password"
+                android:background="@drawable/cuerpo_inicio_registrar"
+                android:drawableLeft="@drawable/logo_contrasena"
                 android:drawablePadding="8dp"
-                android:hint="Password"
+                android:hint="Contraseña"
                 android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/LogInButton"
+                android:id="@+id/iniciarSesionBoton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/morado"
-                android:text="Login"
+                android:text="Ingresar"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
 
             <TextView
-                android:id="@+id/RegisterRedirigir"
+                android:id="@+id/redirigirARegistrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:padding="8dp"
-                android:text="Don't have an account? Sign up"
+                android:text="¿No tienes una cuenta? Registrate"
                 android:textColor="@color/azul"
                 android:textSize="18sp" />
 
