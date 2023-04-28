@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "252933383201",
+    "project_id": "coinsbalance-62fa5",
+    "storage_bucket": "coinsbalance-62fa5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252933383201:android:282c646b5c4c904e2faf60",
+        "android_client_info": {
+          "package_name": "com.example.coinsbalance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252933383201-4pqf2jb0hr8o1mt62347lrqe8iutuc60.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPmWEfi5l42wc4Q3U4NatQserrNrqKMUU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252933383201-4pqf2jb0hr8o1mt62347lrqe8iutuc60.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
