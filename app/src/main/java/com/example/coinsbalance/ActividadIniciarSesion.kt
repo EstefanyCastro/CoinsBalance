@@ -82,7 +82,7 @@ class ActividadIniciarSesion : AppCompatActivity() {
     }
 
     private fun irACuentas() {
-        val i = Intent(this, ActividadCuentas::class.java)
+        val i = Intent(this, ActividadCalendario::class.java)
         startActivity(i)
     }
 }
