@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".ActividadRegistrarse" />
         <activity android:name=".ActividadCuentas" />
+        <activity android:name=".ActividadTransaccion" />
+        <activity android:name=".ActividadLibroVisual" />
     </application>
 
 </manifest>

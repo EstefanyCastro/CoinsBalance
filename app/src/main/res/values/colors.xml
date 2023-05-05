@@ -7,7 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="morado">#A569BD</color>
+    <color name="morado">#975DE0</color>
+    <color name="purpura">#4B148E</color>
+    <color name="moradoClaro">#CAABE2</color>
     <color name="azul">#1E6BF1</color>
     <color name="gris">#4E5460</color>
     <color name="rojo">#F44336</color>

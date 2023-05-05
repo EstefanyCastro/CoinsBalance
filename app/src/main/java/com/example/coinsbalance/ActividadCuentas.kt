@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-
 class ActividadCuentas : AppCompatActivity() {
     private lateinit var añadirBoton: FloatingActionButton
     private lateinit var recyclerView: RecyclerView
