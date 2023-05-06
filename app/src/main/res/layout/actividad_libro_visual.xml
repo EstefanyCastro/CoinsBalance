@@ -5,45 +5,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/morado"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".ActividadLibroVisual">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="wrap_content"
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/purpura"
         app:logo="@drawable/logo_libro"
-        app:title="@string/app_name"
+        app:title="  Titulo libro"
         app:titleTextColor="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/fechaTexto"
+            android:id="@+id/saldoTexto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="Fecha"
+            android:text="Saldo: 0.00"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/calendarioBoton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/devolverBoton"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="10dp"
             android:backgroundTint="@color/purpura"
-            android:text="Calendario"
+            android:text="Atras"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/nuevoBoton"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/purpura"
+            android:text="Nuevo"
             app:cornerRadius="10dp" />
 
     </LinearLayout>
+
+    <ListView
+        android:layout_width="380dp"
+        android:layout_height="570dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/cuerpo_cuenta">
+
+    </ListView>
 
 </LinearLayout>

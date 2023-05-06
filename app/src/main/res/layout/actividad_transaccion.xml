@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/morado"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".ActividadTransaccion">
 
@@ -22,6 +21,7 @@
         android:id="@+id/nombreLibroTitulo"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="55dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/cuerpo_libro"
         android:gravity="center"
@@ -104,8 +104,8 @@
         android:id="@+id/valorTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="60dp"
-        android:layout_marginRight="140dp"
         android:text="Valor"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -115,6 +115,7 @@
         android:id="@+id/valorEntrada"
         android:layout_width="360dp"
         android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/cuerpo_libro_entrada"
         android:inputType="number"
@@ -125,6 +126,7 @@
         android:id="@+id/descripcionTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="110dp"
         android:text="Descripción"
@@ -136,6 +138,7 @@
         android:id="@+id/descripcionEntrada"
         android:layout_width="360dp"
         android:layout_height="80dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/cuerpo_libro_entrada"
         android:inputType="text"
@@ -145,7 +148,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="55dp"
         android:orientation="horizontal">
 
         <Button

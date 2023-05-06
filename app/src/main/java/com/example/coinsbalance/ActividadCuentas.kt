@@ -11,10 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
+
 class ActividadCuentas : AppCompatActivity() {
     private lateinit var añadirBoton: FloatingActionButton
     private lateinit var recyclerView: RecyclerView
-    private lateinit var cuentaLista: ArrayList<UserData>
+    private lateinit var cuentaLista: ArrayList<DatosCuenta>
     private lateinit var adaptadorCuenta: AdaptadorCuenta
     var cerrar = false
 
@@ -36,12 +37,14 @@ class ActividadCuentas : AppCompatActivity() {
         val cuenta = view.findViewById<EditText>(R.id.nombreCuentaAñadir)
         val saldo = view.findViewById<EditText>(R.id.saldoCuentaAñadir)
         val anadirAlerta = AlertDialog.Builder(this)
+        var dbmanager : manejadorBasededatos = manejadorBasededatos()
 
         anadirAlerta.setView(view)
         anadirAlerta.setPositiveButton("Ok") { dialog, _ ->
             val names = cuenta.text.toString()
             val number = saldo.text.toString()
-            cuentaLista.add(UserData("Nombre : $names", "Saldo : $number"))
+            cuentaLista.add(DatosCuenta("prueba@hotmail.com","Nombre : $names", "Saldo : $number"))
+            dbmanager.crearLibro(DatosCuenta("prueba@hotmail.com","Nombre : $names", "Saldo : $number"))
             adaptadorCuenta.notifyDataSetChanged()
             Toast.makeText(this, "Cuenta añadida exitosamente", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
@@ -55,6 +58,7 @@ class ActividadCuentas : AppCompatActivity() {
         anadirAlerta.create()
         anadirAlerta.show()
     }
+
 
     // Devuelta al inicio de sesion
     private fun irAInicioSesion() {

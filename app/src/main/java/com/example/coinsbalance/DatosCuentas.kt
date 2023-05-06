@@ -1,6 +1,7 @@
 package com.example.coinsbalance
 
-data class UserData(
-    var cuenta: String,
-    var saldo: String
+data class DatosCuenta(
+    var usuario: String? = null,
+    var nombre: String? = null,
+    var saldo: String? = null,
 )
