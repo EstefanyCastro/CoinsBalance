@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 
-class AdaptadorCuenta(val context: Context, val listaCuentas: ArrayList<UserData>) :
+class AdaptadorCuenta(val context: Context, val listaCuentas: ArrayList<DatosCuenta>) :
     RecyclerView.Adapter<AdaptadorCuenta.vistaCuentas>() {
+
+	var dbmanager : manejadorBasededatos = manejadorBasededatos()
 
     inner class vistaCuentas(view: View) : RecyclerView.ViewHolder(view) {
         var nombreCuenta: TextView
@@ -41,6 +43,7 @@ class AdaptadorCuenta(val context: Context, val listaCuentas: ArrayList<UserData
                             .setPositiveButton("Ok") { dialog, _ ->
                                 position.cuenta = "Nombre: " + cuenta.text.toString()
                                 position.saldo = "Saldo: " + saldo.text.toString()
+								dbmanager.crearLibro(position)
                                 notifyDataSetChanged()
                                 Toast.makeText(
                                     context,
@@ -68,6 +71,7 @@ class AdaptadorCuenta(val context: Context, val listaCuentas: ArrayList<UserData
                             .setIcon(R.drawable.logo_advertencia)
                             .setMessage("¿Estas seguro que quieres eliminar la cuenta?")
                             .setPositiveButton("Si") { dialog, _ ->
+								dbmanager.eliminarLibro(position.usuario as String, position.nombre as String)
                                 listaCuentas.removeAt(adapterPosition)
                                 notifyDataSetChanged()
                                 Toast.makeText(context, "Información eliminada", Toast.LENGTH_SHORT)

@@ -37,6 +37,8 @@ class ActividadCuentas : AppCompatActivity() {
         val saldo = view.findViewById<EditText>(R.id.saldoCuentaAñadir)
         val anadirAlerta = AlertDialog.Builder(this)
 
+		var dbmanager : manejadorBasededatos = manejadorBasededatos()
+
         anadirAlerta.setView(view)
         anadirAlerta.setPositiveButton("Ok") { dialog, _ ->
             val names = cuenta.text.toString()
